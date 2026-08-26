@@ -13,7 +13,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: frontend
+        working-directory: starter/frontend
 
     steps:
       - name: Checkout code
@@ -44,7 +44,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: frontend
+        working-directory: starter/frontend
 
     steps:
       - name: Checkout code
@@ -94,13 +94,13 @@ jobs:
             ${{ runner.os }}-frontend-node-
 
       - name: Install dependencies
-        working-directory: frontend
+        working-directory: starter/frontend
         run: npm ci
 
       - name: Run tests
-        working-directory: frontend
+        working-directory: starter/frontend
         run: npm test -- --watchAll=false
 
       - name: Build Docker image
-        working-directory: frontend
+        working-directory: starter/frontend
         run: docker build -t movie-frontend:ci .
